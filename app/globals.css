@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN SYSTEM — Erafone Alhilal
+   Palette: White + Red (Erafone brand)
+   Typography: Playfair Display / Inter
+   Theme: Light only (putih profesional)
+   ============================================ */
+
+@theme inline {
+  /* ── Erafone Brand ── */
+  --color-erafone: #DC2626;
+  --color-erafone-dark: #B91C1C;
+  --color-erafone-light: #FEE2E2;
+  --color-erafone-50: #FEF2F2;
+  --color-erafone-100: rgba(220, 38, 38, 0.08);
+  --color-erafone-200: rgba(220, 38, 38, 0.15);
+  --color-accent: #F59E0B;
+  --color-accent-dark: #D97706;
+
+  /* ── WhatsApp ── */
+  --color-wa: #25D366;
+  --color-wa-hover: #1DA851;
+  --color-success: #10B981;
+
+  /* ── Typography ── */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* ── Animations ── */
+  --animate-reveal: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade: fade-in 0.6s ease both;
+  --animate-scale: scale-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-up {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: #1F2937;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Card ── */
+.era-card {
+  background: #FFFFFF;
+  border: 1px solid #F3F4F6;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.02);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.era-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* ── Red accent card ── */
+.era-accent {
+  border: 1px solid rgba(220, 38, 38, 0.12);
+  box-shadow: 0 0 0 1px rgba(220,38,38,0.04), 0 4px 16px rgba(220,38,38,0.04);
+}
+
+/* ── Profile Ring ── */
+.profile-ring {
+  background: linear-gradient(135deg, #DC2626, #F59E0B, #DC2626);
+  padding: 3px;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
+}
+
+.profile-ring-gray {
+  background: linear-gradient(135deg, #E5E7EB, #D1D5DB, #E5E7EB);
+  padding: 3px;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ── WhatsApp Glow ── */
+.wa-btn {
+  box-shadow: 0 0 16px rgba(37, 211, 102, 0.2), 0 4px 12px rgba(37, 211, 102, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wa-btn:hover {
+  box-shadow: 0 0 28px rgba(37, 211, 102, 0.35), 0 6px 20px rgba(37, 211, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ── Section label ── */
+.sec-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+}
+
+/* ── Red divider ── */
+.red-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220,38,38,0.15), transparent);
+}
+
+/* ── Masonry Gallery ── */
+.masonry {
+  columns: 2;
+  column-gap: 10px;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.masonry-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* ── Stagger ── */
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.3s; }
+.d4 { animation-delay: 0.4s; }
+.d5 { animation-delay: 0.5s; }
+.d6 { animation-delay: 0.6s; }
+.d7 { animation-delay: 0.7s; }
+.d8 { animation-delay: 0.8s; }
+.d9 { animation-delay: 0.9s; }
+.d10 { animation-delay: 1.0s; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #FFF; }
+::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 2px; }
