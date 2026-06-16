@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import useEmblaCarousel from "embla-carousel-react";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 interface ImageCarouselProps {
   images: string[];
@@ -59,11 +60,20 @@ export default function ImageCarousel({ images, initialIndex, isOpen, onClose }:
         <div className="flex w-full h-full touch-pan-y">
           {images.map((src, i) => (
             <div className="relative flex-[0_0_100%] min-w-0 flex items-center justify-center p-4" key={i}>
-              <img 
-                src={src} 
-                alt={`Image ${i + 1}`} 
-                className="max-w-full max-h-full object-contain drop-shadow-2xl select-none" 
-              />
+              <TransformWrapper
+                initialScale={1}
+                minScale={1}
+                maxScale={5}
+                wheel={{ step: 0.2 }}
+              >
+                <TransformComponent wrapperClass="w-full h-full flex items-center justify-center" contentClass="w-full h-full flex items-center justify-center">
+                  <img 
+                    src={src} 
+                    alt={`Image ${i + 1}`} 
+                    className="max-w-full max-h-full object-contain drop-shadow-2xl select-none" 
+                  />
+                </TransformComponent>
+              </TransformWrapper>
             </div>
           ))}
         </div>
