@@ -46,6 +46,8 @@ AGENTS.md
 CLAUDE.md
 .claude.md
 .calude.md
+.agent/
+.agent
 
 # Local Environment
 .env.local
