@@ -62,9 +62,12 @@ export default function ImageCarousel({ images, initialIndex, isOpen, onClose }:
             <div className="relative flex-[0_0_100%] min-w-0 flex items-center justify-center p-4" key={i}>
               <TransformWrapper
                 initialScale={1}
-                minScale={1}
-                maxScale={5}
-                wheel={{ step: 0.2 }}
+                minScale={0.5}
+                maxScale={50}
+                limitToBounds={false}
+                centerZoomedOut={true}
+                pinch={{ step: 5 }}
+                wheel={{ step: 0.5 }}
               >
                 <TransformComponent wrapperClass="w-full h-full flex items-center justify-center" contentClass="w-full h-full flex items-center justify-center">
                   <img 
